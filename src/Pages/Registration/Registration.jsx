@@ -128,7 +128,7 @@ const Registration = () => {
                                 </div>
 
                                 <div className="form-control mt-6">
-                                    <button className="py-2 md:py-4  border-2 text-white rounded-lg font-bold">Registration</button>
+                                    <button className="py-2 md:py-3  border-2 text-white rounded-full font-bold">Registration</button>
                                 </div>
                             </form>
                             <p className="text-[16px] mt-4 text-white font-semibold text-center">Already Have An Account ? please <Link className="text-gray-950 hover:underline" to="/Login">Login</Link> </p>
