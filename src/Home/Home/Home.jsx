@@ -1,5 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import Navbar from '../../Pages/Navbar/Navbar';
+import Footer from '../../Pages/Footer/Footer';
 
 const Home = () => {
     return (
@@ -11,6 +12,7 @@ const Home = () => {
             </Helmet>
     
             <Navbar></Navbar>
+            <Footer></Footer>
         </div>
     );
 };

@@ -112,7 +112,7 @@ const Registration = () => {
                     </div>
 
                     <div className="flex-1">
-                        <div className="  p-10 rounded-lg shadow-2xl bg-[#8a2121]">
+                        <div className="  p-10 rounded-lg shadow-2xl bg-[#952727]">
 
                             {
                                 verifyPassword && <p className="text-xl text-white font-bold mb-6">{verifyPassword}</p>
@@ -161,7 +161,7 @@ const Registration = () => {
                                <div className="flex justify-center mt-6">
                                 <button onClick={handleGoogleLogIn} className="py-2 md:py-3 px-10 bg-transparent w-full justify-center text-white  border-2 rounded-full font-bold flex items-center gap-3"><FcGoogle className="text-2xl"></FcGoogle> Google SignUp</button>
                             </div>
-                            <p className="text-[16px] mt-4 text-white font-semibold text-center">Already Have An Account ? please <Link className="text-gray-950 hover:underline" to="/Login">Login</Link> </p>
+                            <p className="text-[16px] mt-4 text-white font-semibold text-center">Already Have An Account ? please <Link className="text-gray-950 hover:underline font-bold" to="/Login">Login</Link> </p>
 
                         </div>
 
