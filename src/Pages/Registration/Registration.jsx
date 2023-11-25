@@ -4,10 +4,11 @@ import Swal from "sweetalert2";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { updateProfile } from "firebase/auth";
+import { FcGoogle } from 'react-icons/fc';
 
 const Registration = () => {
 
-    const { createUser } = useContext(AuthContext)
+    const { createUser,googleLogIn } = useContext(AuthContext)
     const navigate = useNavigate()
     const [verifyPassword, setVerifyPassword] = useState("")
 
@@ -73,6 +74,31 @@ const Registration = () => {
 
     }
 
+     //Google Login
+     const handleGoogleLogIn = () => {
+
+        googleLogIn()
+            .then(result => {
+                console.log(result.user);
+                Swal.fire(
+                    'LogIn!',
+                    'Google LogIn Successful',
+                    'success'
+                )
+                navigate(location.state ? location.state : "/")
+            })
+            .catch(error => {
+                console.error(error);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops sorry...',
+                    text: (`${error.message}`),
+                })
+            })
+
+    }
+
+
 
 
 
@@ -80,12 +106,12 @@ const Registration = () => {
         <div>
             <Navbar></Navbar>
             <div className="max-w-5xl mx-auto">
-                <div className=" flex flex-col-reverse lg:flex-row gap-6 justify-between items-center mt-10 px-10">
-                    <div>
-                        <img src="https://i.ibb.co/NVf5tQ0/Mobile-login-removebg-preview.png" alt="" />
+                <div className=" flex flex-col-reverse lg:flex-row gap-6 justify-between items-center my-10 px-10">
+                    <div className="flex-1">
+                        <img className="w-full" src="https://i.ibb.co/NVf5tQ0/Mobile-login-removebg-preview.png" alt="" />
                     </div>
 
-                    <div>
+                    <div className="flex-1">
                         <div className="  p-10 rounded-lg shadow-2xl bg-[#8a2121]">
 
                             {
@@ -95,7 +121,7 @@ const Registration = () => {
 
                             <h2 className="text-xl md:text-2xl lg:text-3xl text-white text-center font-bold  ">Please Registration</h2>
 
-                            <form onSubmit={handleRegistration}>
+                            <form onSubmit={handleRegistration} className="w-full">
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text text-white  text-[18px]">Name</span>
@@ -123,7 +149,7 @@ const Registration = () => {
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text text-white  text-[18px]">Upload Photo</span>
-                                    </label>
+                                    </label>                                   
                                     <input type="file" name="photo" className="text-white" required />
                                 </div>
 
@@ -131,6 +157,10 @@ const Registration = () => {
                                     <button className="py-2 md:py-3  border-2 text-white rounded-full font-bold">Registration</button>
                                 </div>
                             </form>
+                               {/* GoogleLogIn */}
+                               <div className="flex justify-center mt-6">
+                                <button onClick={handleGoogleLogIn} className="py-2 md:py-3 px-10 bg-transparent w-full justify-center text-white  border-2 rounded-full font-bold flex items-center gap-3"><FcGoogle className="text-2xl"></FcGoogle> Google SignUp</button>
+                            </div>
                             <p className="text-[16px] mt-4 text-white font-semibold text-center">Already Have An Account ? please <Link className="text-gray-950 hover:underline" to="/Login">Login</Link> </p>
 
                         </div>

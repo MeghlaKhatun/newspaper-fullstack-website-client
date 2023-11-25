@@ -1,7 +1,19 @@
 import { NavLink } from "react-router-dom";
 import '../Navbar/Navbar.css'
+import { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const Navbar = () => {
+
+    const { user, LogOut } = useContext(AuthContext);
+
+    //logOut
+    const handleSignOut = () => {
+        LogOut()
+            .then()
+            .catch
+    }
+
     return (
         <div className="bg-[#8a2121]">
             <div className="max-w-7xl mx-auto  py-8">
@@ -25,12 +37,37 @@ const Navbar = () => {
                                 <ul className=" flex gap-8  menu-horizontal text-white font-bold text-[16px] ">
                                     {/* Navbar menu content here */}
                                     <li><NavLink to={"/"}>Home</NavLink></li>
-                                    <li ><NavLink to={"/login"}>Login</NavLink></li>
-                                    <li ><NavLink to={"/registration"}>Registration</NavLink></li>
+                                    
+                                    {
+                                        user ? <p className="hidden"></p>:<li ><NavLink to={"/registration"}>Registration</NavLink></li>
+                                    }
 
+                                    {/* login and logout */}
+                                    {
+                                        user ?
+                                            <div >
+                                                <li onClick={handleSignOut} ><NavLink >LogOut</NavLink></li>
+                                            </div>
+                                            :
+                                            <div>
+
+                                                <li className="hover:underline"><NavLink to={"/login"}>LogIn</NavLink></li>
+                                            </div>
+                                    }
                                 </ul>
 
                             </nav>
+
+                            {/* profile  */}
+
+                            <div className="flex justify-center px-2 overflow-hidden">
+
+                                {
+                                    user?.photoURL && <img src={user?.photoURL} className="w-[30px] h-[30px] rounded-full" alt="" />
+                                }
+                            </div>
+
+
                         </div>
                         {/* Page content here */}
 
@@ -42,8 +79,20 @@ const Navbar = () => {
                         <ul className="menu py-10 px-4 w-80 gap-3 bg-[#8a2121] text-white">
 
                             <li><NavLink to={"/"}>Home</NavLink></li>
-                            <li ><NavLink to={"/login"}>Login</NavLink></li>
                             <li ><NavLink to={"/registration"}>Registration</NavLink></li>
+                            {/* login and logout */}
+                            {
+                                user ?
+                                    <div >
+                                        <li onClick={handleSignOut}><NavLink >LogOut</NavLink></li>
+                                    </div>
+                                    :
+                                    <div>
+
+                                        <li className="hover:underline"><NavLink to={"/login"}>LogIn</NavLink></li>
+                                    </div>
+                            }
+
 
 
                         </ul>
