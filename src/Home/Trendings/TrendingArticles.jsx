@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 
 const TrendingArticles = () => {
     return (
-        <div className="bg-black bg-opacity-50 text-white">
-            <div className="max-w-7xl mx-auto">
+
+            <div className="max-w-7xl mx-auto bg-black bg-opacity-70 text-white my-10">
                 <div className="carousel w-full">
                     <div id="slide1" className="carousel-item relative w-full">
                         <div className="h-[40vh] py-3 w-3/5 mx-auto flex flex-col justify-center items-center text-center " >
@@ -55,7 +55,6 @@ const TrendingArticles = () => {
                     </div>
                 </div>
             </div>
-        </div>
     );
 };
 
