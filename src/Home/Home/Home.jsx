@@ -3,6 +3,7 @@ import Navbar from '../../Pages/Navbar/Navbar';
 import Footer from '../../Pages/Footer/Footer';
 import TrendingArticles from '../Trendings/TrendingArticles';
 import Statistic from '../Statistic/Statistic';
+import Plans from '../Plans/Plans';
 
 const Home = () => {
     return (
@@ -16,6 +17,7 @@ const Home = () => {
             <Navbar></Navbar>
             <TrendingArticles></TrendingArticles>
             <Statistic></Statistic>
+            <Plans></Plans>
             <Footer></Footer>
         </div>
     );
