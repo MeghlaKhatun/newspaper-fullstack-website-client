@@ -1,13 +1,14 @@
 import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
+import { FcGoogle } from 'react-icons/fc';
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 
 const Login = () => {
 
-    const {LogIn}=useContext(AuthContext);
-    const navigate=useNavigate()
+    const { LogIn, googleLogIn } = useContext(AuthContext);
+    const navigate = useNavigate()
 
     const handleLogIn = e => {
         e.preventDefault();
@@ -35,6 +36,30 @@ const Login = () => {
                     text: (`${error.message}`),
                 })
             })
+    }
+
+    //Google Login
+    const handleGoogleLogIn = () => {
+
+        googleLogIn()
+            .then(result => {
+                console.log(result.user);
+                Swal.fire(
+                    'LogIn!',
+                    'Google LogIn Successful',
+                    'success'
+                )
+                navigate(location.state ? location.state : "/")
+            })
+            .catch(error => {
+                console.error(error);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops sorry...',
+                    text: (`${error.message}`),
+                })
+            })
+
     }
 
 
@@ -75,9 +100,19 @@ const Login = () => {
                                     <button className="py-2 md:py-3 border-2  text-white rounded-full font-bold">LogIn</button>
                                 </div>
                             </form>
+
+                                
+                            {/* GoogleLogIn */}
+                            <div className="flex justify-center mt-6">
+                                <button onClick={handleGoogleLogIn} className="py-2 md:py-3 px-10 bg-transparent w-full justify-center text-white  border-2 rounded-full font-bold flex items-center gap-3"><FcGoogle className="text-2xl"></FcGoogle> Google Login</button>
+                            </div>
+
                             <p className="text-[16px] mt-4 text-white font-semibold text-center">Do not Have An Account? please <Link className="text-gray-900 hover:underline font-bold" to="/registration">Registration</Link> </p>
 
+
                         </div>
+
+
 
                     </div>
 
