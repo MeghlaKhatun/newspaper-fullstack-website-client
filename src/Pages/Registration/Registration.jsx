@@ -8,7 +8,7 @@ import { FcGoogle } from 'react-icons/fc';
 
 const Registration = () => {
 
-    const { createUser,googleLogIn } = useContext(AuthContext)
+    const { createUser, googleLogIn } = useContext(AuthContext)
     const navigate = useNavigate()
     const [verifyPassword, setVerifyPassword] = useState("")
 
@@ -36,8 +36,8 @@ const Registration = () => {
             setVerifyPassword("Password must have one character special key word");
             return
         }
-        else if(!/\d/.test(password)){
-            setVerifyPassword ("Password must contain at least one numeric character.");
+        else if (!/\d/.test(password)) {
+            setVerifyPassword("Password must contain at least one numeric character.");
             return;
         }
 
@@ -53,13 +53,13 @@ const Registration = () => {
                 )
 
                 navigate('/')
-                 //updateProfile
-                 updateProfile(result.user,{
-                    displayName:name,
-                    photoURL:photo,
-                  })
-                  .then(()=>console.log("profile updated"))
-                  .catch()
+                //updateProfile
+                updateProfile(result.user, {
+                    displayName: name,
+                    photoURL: photo,
+                })
+                    .then(() => console.log("profile updated"))
+                    .catch()
 
 
             })
@@ -74,8 +74,8 @@ const Registration = () => {
 
     }
 
-     //Google Login
-     const handleGoogleLogIn = () => {
+    //Google Login
+    const handleGoogleLogIn = () => {
 
         googleLogIn()
             .then(result => {
@@ -148,17 +148,17 @@ const Registration = () => {
 
                                 <div className="form-control">
                                     <label className="label">
-                                        <span className="label-text text-white  text-[18px]">Upload Photo</span>
-                                    </label>                                   
-                                    <input type="file" name="photo" className="text-white" required />
+                                        <span className="label-text text-white  text-[18px]">Photo URL</span>
+                                    </label>
+                                    <input type="text" name="photo" placeholder="Photo URL" className="input input-bordered text-black" required />
                                 </div>
 
                                 <div className="form-control mt-6">
                                     <button className="py-2 md:py-3  border-2 text-white rounded-full font-bold">Registration</button>
                                 </div>
                             </form>
-                               {/* GoogleLogIn */}
-                               <div className="flex justify-center mt-6">
+                            {/* GoogleLogIn */}
+                            <div className="flex justify-center mt-6">
                                 <button onClick={handleGoogleLogIn} className="py-2 md:py-3 px-10 bg-transparent w-full justify-center text-white  border-2 rounded-full font-bold flex items-center gap-3"><FcGoogle className="text-2xl"></FcGoogle> Google SignUp</button>
                             </div>
                             <p className="text-[16px] mt-4 text-white font-semibold text-center">Already Have An Account ? please <Link className="text-gray-950 hover:underline font-bold" to="/Login">Login</Link> </p>
