@@ -1,6 +1,12 @@
 // import { useState } from "react";
+import Swal from "sweetalert2";
+import useAxiosPublic from "../../hooks/axiosPublic";
 import Navbar from "../Navbar/Navbar";
 import Select from 'react-select';
+
+const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY
+const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`
+
 
 const AddArticles = () => {
 
@@ -12,40 +18,56 @@ const AddArticles = () => {
         { value: 'sports', label: 'Sports' },
         { value: 'entertainment', label: 'Entertainment' },
         { value: 'health', label: 'Health' },
-      ]
+    ]
 
+    const axiosPublic = useAxiosPublic()
 
-      const handleAddArticles = e => {
+    const handleAddArticles = async (e) => {
         e.preventDefault();
         const form = e.target;
         const name = form.name.value;
-        const file = form.file.value;
+        const file = e.target.file.files[0];
         const article = form.article.value;
         const title = form.title.value;
         const description = form.description.value;
 
-        console.log(name, article,file,title , description);
-        // const addService = { name, email, image, service_name, area, price, description,profile }
-        // //send data
-        // fetch("https://ass-crud-and-jwt-server.vercel.app/service", {
-        //     method: "POST",
-        //     headers: {
-        //         'content-type': 'application/json'
-        //     },
-        //     body: JSON.stringify(addService)
-        // })
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         console.log(data)
-        //         if (data.insertedId) {
-        //             Swal.fire(
-        //                 'Success!',
-        //                 'Service added successfully',
-        //                 'success'
-        //             );
-        //         }
+        console.log(name, article, file, title, description);
 
-        //     })
+
+        const imageFile = { image: file }
+
+        const res = await axiosPublic.post(image_hosting_api, imageFile, {
+            headers: {
+                'content-type': 'multipart/form-data'
+            }
+        })
+
+
+
+        const image = res.data.data.display_url
+
+
+        const addArticle = { name, article, image, title, description }
+        // send data
+        fetch("http://localhost:5000/articles", {
+            method: "POST",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(addArticle)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.insertedId) {
+                    Swal.fire(
+                        'Success!',
+                        'Article added successfully',
+                        'success'
+                    );
+                }
+
+            })
     }
 
     return (
@@ -83,7 +105,8 @@ const AddArticles = () => {
                                 <label className="label">
                                     <span className="label-text font-semibold text-[#8a2121] text-[16px] md:text-[18px]">Tags</span>
                                 </label>
-                                <Select 
+                                <Select
+                                    required
                                     defaultValue={[options[1]]}
                                     isMulti
                                     name="article"
