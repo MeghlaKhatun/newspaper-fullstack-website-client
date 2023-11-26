@@ -5,9 +5,11 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { updateProfile } from "firebase/auth";
 import { FcGoogle } from 'react-icons/fc';
+import useAxiosPublic from "../../hooks/axiosPublic";
 
 const Registration = () => {
 
+    const axiosPublic = useAxiosPublic()
     const { createUser, googleLogIn } = useContext(AuthContext)
     const navigate = useNavigate()
     const [verifyPassword, setVerifyPassword] = useState("")
@@ -45,20 +47,28 @@ const Registration = () => {
         //createUser
         createUser(email, password)
             .then(result => {
-                console.log(result.user);
-                Swal.fire(
-                    'Registration!',
-                    'Registration Successful',
-                    'success'
-                )
-
                 navigate('/')
                 //updateProfile
                 updateProfile(result.user, {
                     displayName: name,
                     photoURL: photo,
                 })
-                    .then(() => console.log("profile updated"))
+                    .then(() => {
+                        const userInfo = {
+                            name, email, photo,
+                        }
+                        axiosPublic.post('/user', userInfo)
+                            .then(res => {
+                                console.log(res.data)
+                                if (res.data.insertedId) {
+                                    Swal.fire(
+                                        'Registration!',
+                                        ' Successful',
+                                        'success'
+                                    )
+                                }
+                            })
+                    })
                     .catch()
 
 
@@ -97,6 +107,7 @@ const Registration = () => {
             })
 
     }
+    
 
 
 
