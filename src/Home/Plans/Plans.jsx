@@ -42,7 +42,7 @@ const Plans = () => {
                                 <h2 className="text-xl lg:text-2xl text-white font-bold">Premium Family</h2>
                             </div>
                             <div>                              
-                                <h2 className="text-[18px] lg:text-xl text-center font-medium text-white">$16.99</h2>
+                                <h2 className="text-[18px] lg:text-xl text-center font-medium text-white">$14.99</h2>
                                 <h2 className="text-[17px] font-normal text-white">per month</h2>
                             </div>
                         </div>
@@ -72,8 +72,8 @@ const Plans = () => {
                                 <h2 className="text-xl lg:text-2xl text-white font-bold">Premium Individual</h2>
                             </div>
                             <div>                              
-                                <h2 className="text-[18px] lg:text-xl text-center font-medium text-white">Free</h2>
-                                <h2 className="text-[17px] font-normal text-white">for 1 month</h2>
+                                <h2 className="text-[18px] lg:text-xl text-center font-medium text-white">$16.99</h2>
+                                <h2 className="text-[17px] font-normal text-white">per month</h2>
                             </div>
                         </div>
 
