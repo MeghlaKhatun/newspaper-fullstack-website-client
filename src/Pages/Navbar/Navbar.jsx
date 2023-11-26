@@ -37,9 +37,15 @@ const Navbar = () => {
                                 <ul className=" flex gap-8  menu-horizontal text-white font-bold text-[16px] ">
                                     {/* Navbar menu content here */}
                                     <li><NavLink to={"/"}>Home</NavLink></li>
-                                    
+                                    <li><NavLink to={"/addArticles"}>AddArticles</NavLink></li>
+                                    <li><NavLink to={"/allArticles"}>AllArticles</NavLink></li>
+                                    <li><NavLink to={"/subscription"}>Subscription</NavLink></li>
+                                    <li><NavLink to={"/myArticles"}>MyArticles</NavLink></li>
+                                    <li><NavLink to={"/premiumArticles"}>PremiumArticles</NavLink></li>
+                                    <li><NavLink to={"/dashboard"}>Dashboard</NavLink></li>
+
                                     {
-                                        user ? <p className="hidden"></p>:<li ><NavLink to={"/registration"}>Registration</NavLink></li>
+                                        user ? <p className="hidden"></p> : <li ><NavLink to={"/registration"}>Registration</NavLink></li>
                                     }
 
                                     {/* login and logout */}
@@ -79,7 +85,15 @@ const Navbar = () => {
                         <ul className="menu py-10 px-4 w-80 gap-3 bg-[#8a2121] text-white">
 
                             <li><NavLink to={"/"}>Home</NavLink></li>
-                            <li ><NavLink to={"/registration"}>Registration</NavLink></li>
+                            <li><NavLink to={"/addArticles"}>AddArticles</NavLink></li>
+                            <li><NavLink to={"/allArticles"}>AllArticles</NavLink></li>
+                            <li><NavLink to={"/subscription"}>Subscription</NavLink></li>
+                            <li><NavLink to={"/myArticles"}>MyArticles</NavLink></li>
+                            <li><NavLink to={"/premiumArticles"}>PremiumArticles</NavLink></li>
+                            <li><NavLink to={"/dashboard"}>Dashboard</NavLink></li>
+                            {
+                                user ? <p className="hidden"></p> : <li ><NavLink to={"/registration"}>Registration</NavLink></li>
+                            }
                             {/* login and logout */}
                             {
                                 user ?

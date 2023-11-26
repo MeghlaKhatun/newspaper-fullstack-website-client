@@ -2,7 +2,9 @@ import { Link } from "react-router-dom";
 
 const TrendingArticles = () => {
     return (
-
+        <div className="max-w-7xl mx-auto">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#8a2121] text-center mt-8">Trending Articles</h2>
+            <p className='text-[16px] font-semibold w-full px-4 md:px-0 md:w-1/2 text-center mx-auto mt-2 mb-8'>A trending topic is a subject that experiences a surge in popularity on one or more social media platforms for a limited duration of time. </p>
             <div className="max-w-7xl mx-auto bg-black bg-opacity-70 text-white my-10">
                 <div className="carousel w-full">
                     <div id="slide1" className="carousel-item relative w-full">
@@ -55,6 +57,7 @@ const TrendingArticles = () => {
                     </div>
                 </div>
             </div>
+        </div>
     );
 };
 

@@ -2,7 +2,7 @@ const Footer = () => {
     return (
         <footer className="footer footer-center p-10 bg-[#8a2121] text-primary-content">
             <aside>
-                <img className="w-[100px]" src="https://i.ibb.co/YN6BNvc/logo-removebg-preview.png" alt="" />
+               <a href="#"><img className="w-[100px]" src="https://i.ibb.co/YN6BNvc/logo-removebg-preview.png" alt="" /></a> 
                 
             </aside>
             <nav>
