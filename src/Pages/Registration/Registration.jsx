@@ -85,29 +85,68 @@ const Registration = () => {
     }
 
     //Google Login
-    const handleGoogleLogIn = () => {
+    // const handleGoogleLogIn = () => {
 
+    //     googleLogIn()
+    //         .then(result => {
+    //             console.log(result.user);
+
+
+
+
+
+
+
+
+
+    //             Swal.fire(
+    //                 'LogIn!',
+    //                 'Google LogIn Successful',
+    //                 'success'
+    //             )
+    //             navigate(location.state ? location.state : "/")
+    //         })
+    //         .catch(error => {
+    //             console.error(error);
+    //             Swal.fire({
+    //                 icon: 'error',
+    //                 title: 'Oops sorry...',
+    //                 text: (`${error.message}`),
+    //             })
+    //         })
+
+    // }
+
+
+
+
+
+    const handleGoogleLogIn = () => {
         googleLogIn()
             .then(result => {
                 console.log(result.user);
+                const userInfo = {
+                    email: result.user?.email,
+                    name: result.user?.displayName,
+                    photo: result.user?.photoURL,
+                }
+                axiosPublic.post('/user', userInfo)
+                    .then(res => {
+                        console.log(res.data);
+                        navigate('/');
+                    })
                 Swal.fire(
                     'LogIn!',
                     'Google LogIn Successful',
                     'success'
                 )
-                navigate(location.state ? location.state : "/")
             })
-            .catch(error => {
-                console.error(error);
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops sorry...',
-                    text: (`${error.message}`),
-                })
-            })
-
     }
-    
+
+
+
+
+
 
 
 
