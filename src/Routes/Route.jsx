@@ -5,6 +5,8 @@ import Registration from "../Pages/Registration/Registration";
 import Login from "../Pages/Login/Login";
 import ErrorElement from "../Pages/ErrorPage/ErrorElement";
 import AddArticles from "../Pages/AddArticles/AddArticles";
+import AllArticles from "../Pages/AllArticles/AllArticles";
+import Details from "../Pages/AllArticles/Details";
 
 const router = createBrowserRouter([
     {
@@ -27,7 +29,17 @@ const router = createBrowserRouter([
         {
           path:'/addArticles',
           element:<AddArticles></AddArticles>
+        },
+        {
+          path:'/allArticles',
+          element:<AllArticles></AllArticles>
+        },
+        {
+          path:'/allArticles/:id',
+          element:<Details></Details>,
+          loader:({params})=>fetch(`http://localhost:5000/articles/${params.id}`)
         }
+
       ]
     },
   ]);

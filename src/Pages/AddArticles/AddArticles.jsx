@@ -12,6 +12,8 @@ const AddArticles = () => {
 
     const options = [
         { value: 'politics', label: 'Politics' },
+        { value: 'international', label: 'International' },
+        { value: 'environment', label: 'Environment' },
         { value: 'business', label: 'Business' },
         { value: 'technology', label: 'Technology' },
         { value: 'science', label: 'Science' },
@@ -27,11 +29,11 @@ const AddArticles = () => {
         const form = e.target;
         const name = form.name.value;
         const file = e.target.file.files[0];
-        const article = form.article.value;
+        const tag = form.article.value;
         const title = form.title.value;
         const description = form.description.value;
 
-        console.log(name, article, file, title, description);
+        console.log(name, tag, file, title, description);
 
 
         const imageFile = { image: file }
@@ -47,7 +49,7 @@ const AddArticles = () => {
         const image = res.data.data.display_url
 
 
-        const addArticle = { name, article, image, title, description }
+        const addArticle = { name, tag, image, title, description }
         // send data
         fetch("http://localhost:5000/articles", {
             method: "POST",
@@ -137,7 +139,7 @@ const AddArticles = () => {
                             </div>
                         </div>
 
-                        <input type="submit" value="Add Article" className="py-3 cursor-pointer md:font-bold hover:text-[#8a2121] hover:border-2 hover:border-[#8a2121] hover:bg-white btn-block border bg-[#8a2121] text-white" />
+                        <input type="submit" value="Add Article" className="py-3 cursor-pointer md:font-bold  btn-block border bg-[#8a2121] text-white" />
 
                     </form>
 
