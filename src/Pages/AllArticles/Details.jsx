@@ -23,13 +23,6 @@ const Details = () => {
             })
     }, [axiosPublic, _id,viewCount])
 
-
-
-
-
-
-
-
     return (
         <div>
             <Navbar></Navbar>
@@ -41,7 +34,7 @@ const Details = () => {
                             />
                         </div>
                         <div className="card-body">
-                            <h2 className="text-[18px] md:text-xl font-semibold"><span className="font-bold">Title:</span> {title}</h2>
+                           <h2 className="text-[18px] md:text-xl font-semibold"><span className="font-bold">Title:</span> {title}</h2>
                             <h2 className="text-[18px] md:text-xl font-semibold"><span className="font-bold">Publisher:</span>  {name}</h2>
                             <h2 className="text-[18px] md:text-xl font-semibold"><span className="font-bold">Tag:</span>  {tag}</h2>
                             <p className="font-normal text-[15px]">{description}</p>

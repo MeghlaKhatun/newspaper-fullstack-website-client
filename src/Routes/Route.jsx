@@ -9,6 +9,7 @@ import AllArticles from "../Pages/AllArticles/AllArticles";
 import Details from "../Pages/AllArticles/Details";
 import Dashboard from "../Dashboard/Dashboard/Dashboard";
 import AllUser from "../Dashboard/AllUser/AllUser";
+import MyProfile from "../Pages/MyProfile/MyProfile";
 
 const router = createBrowserRouter([
     {
@@ -27,6 +28,11 @@ const router = createBrowserRouter([
         {
           path:'/login',
           element:<Login></Login>
+        },
+        {
+          path:'/myProfile',
+          element:<MyProfile></MyProfile>,
+          loader:()=>fetch("http://localhost:5000/user")
         },
         {
           path:'/addArticles',

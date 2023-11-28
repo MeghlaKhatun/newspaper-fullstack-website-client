@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import '../Navbar/Navbar.css'
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
@@ -69,7 +69,7 @@ const Navbar = () => {
                             <div className="flex justify-center px-2 overflow-hidden">
 
                                 {
-                                    user?.photoURL && <img src={user?.photoURL} className="w-[30px] h-[30px] rounded-full" alt="" />
+                                    user?.photoURL && <Link to={"/myProfile"}><img src={user?.photoURL} className="w-[30px] h-[30px] rounded-full"/></Link> 
                                 }
                             </div>
 
