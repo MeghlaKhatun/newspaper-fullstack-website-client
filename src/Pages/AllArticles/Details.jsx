@@ -1,28 +1,27 @@
 import { useLoaderData } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
-// import useAxiosPublic from "../../hooks/axiosPublic";
-// import { useEffect } from "react";
+import useAxiosPublic from "../../hooks/axiosPublic";
+import { useEffect } from "react";
 
 
 const Details = () => {
 
+    const axiosPublic = useAxiosPublic()
     const details = useLoaderData();
-    const { title, name, tag, description, image } = details;
+    const { _id, title, name, tag, description, image } = details;
 
 
-// const axiosPublic =useAxiosPublic()
 
+    const count = 1;
+    const viewCount = { count }
+    console.log(viewCount);
 
-//     const count = 1;
-//   const viewCount = {count}
-//   console.log(viewCount);
-
-//   useEffect(() =>{
-//     axiosPublic.patch(`/articles/viewCount/${_id}`, viewCount)
-//     .then(res =>{
-//       console.log(res.data);
-//     })
-//   },[axiosPublic,_id])
+    useEffect(() => {
+        axiosPublic.patch(`/articles/viewCount/${_id}`, viewCount)
+            .then(res => {
+                console.log(res.data);
+            })
+    }, [axiosPublic, _id,viewCount])
 
 
 

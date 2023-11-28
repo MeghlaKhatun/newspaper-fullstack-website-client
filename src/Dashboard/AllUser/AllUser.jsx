@@ -1,6 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
-import { FaTrashAlt } from "react-icons/fa";
 import Navbar from "../../Pages/Navbar/Navbar";
 import Swal from "sweetalert2";
 
@@ -18,22 +17,24 @@ const AllUser = () => {
     })
 
 
-    const handleMakeAdmin = user =>{
+    const handleMakeAdmin = user => {
         axiosSecure.patch(`/user/admin/${user._id}`)
-        .then(res =>{
-            console.log(res.data)
-            if(res.data.modifiedCount > 0){
-                refetch();
-                Swal.fire({
-                    position: "top-end",
-                    icon: "success",
-                    title: `${user.name} is an Admin Now!`,
-                    showConfirmButton: false,
-                    timer: 1500
-                  });
-            }
-        })
+            .then(res => {
+                console.log(res.data)
+                if (res.data.modifiedCount > 0) {
+                    refetch();
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: `${user.name} is an Admin Now!`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
+            })
     }
+
+
 
 
     return (
@@ -44,15 +45,13 @@ const AllUser = () => {
                     <table className="table">
                         {/* head */}
                         <thead>
-                            <tr>
+                            <tr className="text-black font-bold text-[16px]">
 
-                                <th></th>
+                                <th>No</th>
                                 <th>Profile</th>
                                 <th>Name</th>
                                 <th>Email</th>
-
                                 <th>Role</th>
-                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -63,13 +62,8 @@ const AllUser = () => {
                                     <th>{index + 1}</th>
 
                                     <td>
-                                        <div className="flex items-center gap-3">
-                                            <div className="avatar">
-                                                <div className="mask mask-squircle w-12 h-12">
-                                                    <img src={user.photo} />
-                                                </div>
-
-                                            </div>
+                                        <div className="mask mask-squircle w-10 h-10">
+                                            <img src={user.photo} />
                                         </div>
                                     </td>
 
@@ -80,20 +74,13 @@ const AllUser = () => {
                                         {
                                             user.role === 'admin' ? 'Admin' :
                                                 <button
-                                                    onClick={()=>handleMakeAdmin(user)}
-                                                    className="btn btn-ghost btn-sm bg-gray-500 text-black">
+                                                    onClick={() => handleMakeAdmin(user)}
+                                                    className="py-2 px-4 bg-[#8a2121] text-white font-semibold rounded-lg">
                                                     Make Admin
                                                 </button>
                                         }
                                     </td>
 
-                                    <td>
-                                        <button
-                                            className="btn btn-ghost btn-lg"
-                                        >
-                                            <FaTrashAlt></FaTrashAlt>
-                                        </button>
-                                    </td>
                                 </tr>)
                             }
 

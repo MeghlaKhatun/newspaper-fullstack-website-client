@@ -4,9 +4,11 @@ import { FcGoogle } from 'react-icons/fc';
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import useAxiosPublic from "../../hooks/axiosPublic";
 
 const Login = () => {
 
+    const axiosPublic = useAxiosPublic()
     const { LogIn, googleLogIn } = useContext(AuthContext);
     const navigate = useNavigate()
 
@@ -38,18 +40,27 @@ const Login = () => {
             })
     }
 
-    //Google Login
-    const handleGoogleLogIn = () => {
 
+    //google login
+    const handleGoogleLogIn = () => {
         googleLogIn()
             .then(result => {
                 console.log(result.user);
+                const userInfo = {
+                    email: result.user?.email,
+                    name: result.user?.displayName,
+                    photo: result.user?.photoURL,
+                }
+                axiosPublic.post('/user', userInfo)
+                    .then(res => {
+                        console.log(res.data);
+                        navigate(location.state ? location.state : "/")
+                    })
                 Swal.fire(
                     'LogIn!',
                     'Google LogIn Successful',
                     'success'
                 )
-                navigate(location.state ? location.state : "/")
             })
             .catch(error => {
                 console.error(error);
@@ -59,7 +70,6 @@ const Login = () => {
                     text: (`${error.message}`),
                 })
             })
-
     }
 
 

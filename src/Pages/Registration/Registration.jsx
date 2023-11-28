@@ -84,42 +84,6 @@ const Registration = () => {
 
     }
 
-    //Google Login
-    // const handleGoogleLogIn = () => {
-
-    //     googleLogIn()
-    //         .then(result => {
-    //             console.log(result.user);
-
-
-
-
-
-
-
-
-
-    //             Swal.fire(
-    //                 'LogIn!',
-    //                 'Google LogIn Successful',
-    //                 'success'
-    //             )
-    //             navigate(location.state ? location.state : "/")
-    //         })
-    //         .catch(error => {
-    //             console.error(error);
-    //             Swal.fire({
-    //                 icon: 'error',
-    //                 title: 'Oops sorry...',
-    //                 text: (`${error.message}`),
-    //             })
-    //         })
-
-    // }
-
-
-
-
 
     const handleGoogleLogIn = () => {
         googleLogIn()
@@ -133,13 +97,21 @@ const Registration = () => {
                 axiosPublic.post('/user', userInfo)
                     .then(res => {
                         console.log(res.data);
-                        navigate('/');
+                        navigate(location.state ? location.state : "/")
                     })
                 Swal.fire(
                     'LogIn!',
                     'Google LogIn Successful',
                     'success'
                 )
+            })
+            .catch(error => {
+                console.error(error);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops sorry...',
+                    text: (`${error.message}`),
+                })
             })
     }
 

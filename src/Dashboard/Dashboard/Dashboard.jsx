@@ -1,4 +1,4 @@
-import { FaHome } from "react-icons/fa";
+import { FaHome,FaUser } from "react-icons/fa";
 import { NavLink, Outlet } from "react-router-dom";
 import Navbar from "../../Pages/Navbar/Navbar";
 
@@ -11,35 +11,35 @@ const Dashboard = () => {
             <Navbar></Navbar>
             <div className="flex">
                 {/* dashboard side bar */}
-                <div className="w-64 min-h-screen bg-[#8a2121] text-white">
-                    <ul className="menu p-4">
+                <div className=" min-h-screen bg-[#8a2121] text-white">
+                    <ul className=" p-10 font-semibold space-y-2">
                         {
                             <>
                                 <li>
-                                    <NavLink to="/dashboard/adminHome">
+                                    <NavLink className={"flex gap-1 items-center"}  to="/dashboard">
                                         <FaHome></FaHome>
                                         Admin Home</NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to="/allUser">
+                                    <NavLink className={"flex gap-1 items-center"} to="/allUser">
+                                    <FaUser></FaUser>
                                         All-User</NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to="/dashboard/adminHome">
+                                    <NavLink to="/dashboard">
                                         All-Articles</NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to="/dashboard/adminHome">         
+                                    <NavLink to="/dashboard">         
                                         Add-Publisher</NavLink>
                                 </li>
 
                             </>
 
                         }
-                        {/* shared nav links */}
                         <div className="divider"></div>
                         <li>
-                            <NavLink to="/">
+                            <NavLink className={"flex gap-1 items-center"} to="/">
                                 <FaHome></FaHome>
                                 Home</NavLink>
                         </li>
