@@ -136,14 +136,14 @@ const AllServices = () => {
                 <form onSubmit={handleSearch} className="mx-auto">
                     <div className="mt-10">
                         <input
-                            className="text-black border outline-none rounded-lg py-3 md:py-4 pl-4 pr-[40px] md:pr-[200px] lg:pr-[350px]"
+                            className="text-black border border-[#8a2121] outline-none rounded-lg py-3 md:py-4 pl-4 pr-[40px] md:pr-[200px] lg:pr-[350px]"
                             type="text"
                             placeholder="Search here...."
                             name="text"
                             id=""
                         />
                     </div>
-                    <div className="md:absolute mt-4 md:mt-[-57px] flex justify-center  md:ml-[300px] lg:ml-[450px]">
+                    <div className="md:absolute mt-4 md:mt-[-57px] flex justify-center  md:ml-[272px] lg:ml-[422px]">
                         <input
                             className="bg-[#8a2121] text-[16px] font-semibold py-2 md:py-4 px-10 cursor-pointer text-white rounded-r-none md:rounded-r-lg "
                             type="submit"
