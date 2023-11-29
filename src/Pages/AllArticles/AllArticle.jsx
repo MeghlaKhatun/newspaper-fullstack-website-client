@@ -6,6 +6,8 @@ const AllArticle = (article) => {
     const { _id,name, title, image, description } = article.data
     console.log(article.data)
     return (
+        
+
         <div>
             <div className=" border-2 p-6 md:h-[650px] border-[#8a2121]">
                 <h2 className="card-title font-bold py-6 text-xl">{title}</h2>

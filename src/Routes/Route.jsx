@@ -10,6 +10,8 @@ import Details from "../Pages/AllArticles/Details";
 import Dashboard from "../Dashboard/Dashboard/Dashboard";
 import AllUser from "../Dashboard/AllUser/AllUser";
 import MyProfile from "../Pages/MyProfile/MyProfile";
+import AdminAllArticle from "../Pages/AddminAllArticle/AdminAllArticle";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -31,12 +33,12 @@ const router = createBrowserRouter([
         },
         {
           path:'/myProfile',
-          element:<MyProfile></MyProfile>,
+          element:<PrivateRoute><MyProfile></MyProfile></PrivateRoute>,
           loader:()=>fetch("http://localhost:5000/user")
         },
         {
           path:'/addArticles',
-          element:<AddArticles></AddArticles>
+          element:<PrivateRoute><AddArticles></AddArticles></PrivateRoute>
         },
         {
           path:'/allArticles',
@@ -55,6 +57,10 @@ const router = createBrowserRouter([
         {
           path:'/allUser',
           element:<AllUser></AllUser>
+        },
+        {
+          path:'/adminAllArticles',
+          element:<AdminAllArticle></AdminAllArticle>
         }
 
       ]

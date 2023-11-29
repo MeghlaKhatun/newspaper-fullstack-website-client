@@ -7,13 +7,15 @@ const AllServices = () => {
     const allArticles = useLoaderData();
     const [filteredAllArticles, setFilteredArticles] = useState([]);
 
+
     const handleSearch = (e) => {
         e.preventDefault();
         const search = e.target.text.value.trim().toLowerCase();
         const filter = allArticles.filter(
-            (allCard) =>
-                allCard.title.toLowerCase().indexOf(search) !== -1
+            (allArticle) =>
+                allArticle.title.toLowerCase().indexOf(search) !== -1  && allArticle?.status === true
         );
+
         setFilteredArticles(filter);
     };
 
@@ -49,6 +51,10 @@ const AllServices = () => {
             </div>
 
             {/* all service */}
+
+            {
+                
+            }
             <div className="grid grid-cols-1 lg:grid-cols-2 max-w-7xl mx-auto gap-10 my-10 px-10 lg:px-0">
                 {filteredAllArticles?.map((data) => (
                     <AllArticle key={data._id} data={data}></AllArticle>
