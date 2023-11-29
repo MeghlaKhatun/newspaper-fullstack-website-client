@@ -2,7 +2,7 @@ import Swal from "sweetalert2";
 import useAxiosPublic from "../../hooks/axiosPublic";
 import Navbar from "../Navbar/Navbar";
 import Select from 'react-select';
-import { useContext } from "react";
+import { useContext} from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY
@@ -13,7 +13,12 @@ const AddArticles = () => {
 
     const { user} = useContext(AuthContext);
 
-    console.log(user?.displayName)
+    const publisher = [
+        { value: 'meghla', label: 'Meghla' },
+        { value: 'mannatun', label: 'Jannatun' },
+        { value: 'mawya', label: 'Mawya' },
+        { value: 'parvin', label: 'Parvin' },
+    ]
 
     const options = [
         { value: 'politics', label: 'Politics' },
@@ -32,15 +37,17 @@ const AddArticles = () => {
     const handleAddArticles = async (e) => {
         e.preventDefault();
         const form = e.target;
-        const name = form.name.value;
-        const file = e.target.file.files[0];
-        const tag = form.article.value;
-        const title = form.title.value;
         const authorName = form.authorName.value;
-        const authorEmail = form.authorEmail.value
+        const authorEmail = form.authorEmail.value;
+        const authorProfile=form.authorProfile.value;
+        const file = form.file.files[0];
+        const tag = form.tag.value;
+        const title = form.title.value;
+        const publisher = form.publisher.value;
+        const date = form.date.value;
         const description = form.description.value;
 
-        console.log(name, authorName, authorEmail, tag, file, title, description);
+        console.log( authorName, authorEmail, tag,  title, description,authorProfile,publisher,date);
 
 
         const imageFile = { image: file }
@@ -50,8 +57,10 @@ const AddArticles = () => {
             }
         })
 
+        console.log(res.data.data.display_url)
+
         const image = res.data.data.display_url
-        const addArticle = { name, tag, image, title, description }
+        const addArticle = {  image,authorName, authorEmail, tag,  title, description,authorProfile,publisher,date }
         // Post data
         fetch("http://localhost:5000/articles", {
             method: "POST",
@@ -84,7 +93,7 @@ const AddArticles = () => {
 
                      <form onSubmit={handleAddArticles} className=" w-full py-10 px-10 ">
 
-                            {/*Publisher name and image */}
+                            {/*User name and email */}
                             <div className="md:flex gap-6 w-full">
                                 <div className="form-control pt-2 flex-1">
                                     <label className="label">
@@ -103,7 +112,7 @@ const AddArticles = () => {
                             </div>
 
 
-                            {/*Publisher name and image */}
+                            {/*Publisher profile and photo */}
                             <div className="md:flex gap-6 w-full">
                                 <div className="form-control pt-2 flex-1">
                                     <label className="label">
@@ -132,7 +141,7 @@ const AddArticles = () => {
                                         required
                                         defaultValue={[options[1]]}
                                         isMulti
-                                        name="article"
+                                        name="tag"
                                         options={options}
                                         className="basic-multi-select  border-2 pl-3 py-[2px] h-full w-full outline-none focus:outline-none focus:ring-0 border-[#8a2121] text-black"
                                         classNamePrefix="select"
@@ -148,13 +157,30 @@ const AddArticles = () => {
 
                             </div>
 
-                            {/* date */}
-                            <div className="form-control pt-2 ">
+                            {/*publisher and date */}
+                            <div className="md:flex gap-6 w-full">
+                                <div className="form-control pt-2 flex-1 border-none outline-none">
+                                    <label className="label">
+                                        <span className="label-text font-semibold text-[#8a2121] text-[16px] md:text-[18px]">Publisher</span>
+                                    </label>
+                                    <Select
+                                        required
+                                        defaultValue={[publisher[1]]}
+                                        name="publisher"
+                                        options={publisher}
+                                        className="basic-multi-select  border-2 pl-3 py-[2px] h-full w-full outline-none focus:outline-none focus:ring-0 border-[#8a2121] text-black"
+                                        classNamePrefix="select"
+                                    />
+                                </div>
+
+                                <div className="form-control pt-2 flex-1">
                                     <label className="label">
                                         <span className="label-text font-semibold text-[#8a2121] text-[16px] md:text-[18px]">Date</span>
                                     </label>
-                                    <input type="date" name="title" className=" border-2 pl-3 py-2 input-bordered outline-none border-[#8a2121] text-black" placeholder="Article Title" required />
+                                    <input type="date" name="date" className=" border-2 pl-3 py-2 input-bordered outline-none border-[#8a2121] text-black" placeholder="Article Title" required />
                                 </div>
+
+                            </div>
 
 
                             {/* description */}
@@ -172,10 +198,6 @@ const AddArticles = () => {
 
                         </form>
                     
-
-
-
-
                 </div>
             </div>
 
