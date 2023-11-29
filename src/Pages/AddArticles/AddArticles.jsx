@@ -88,14 +88,14 @@ const AddArticles = () => {
                             <div className="md:flex gap-6 w-full">
                                 <div className="form-control pt-2 flex-1">
                                     <label className="label">
-                                        <span className="label-text font-semibold text-[#8a2121] text-[16px] md:text-[18px]">Publisher Name</span>
+                                        <span className="label-text font-semibold text-[#8a2121] text-[16px] md:text-[18px]">User Name</span>
                                     </label>
                                     <input type="text" name="authorName" className=" border-2 pl-3 py-2 input-bordered outline-none border-[#8a2121] text-black" defaultValue={`${user?.displayName}`} readOnly required />
                                 </div>
 
                                 <div className="form-control pt-2 flex-1">
                                     <label className="label">
-                                        <span className="label-text font-semibold text-[#8a2121] text-[16px] md:text-[18px]">Publisher Email</span>
+                                        <span className="label-text font-semibold text-[#8a2121] text-[16px] md:text-[18px]">User Email</span>
                                     </label>
                                     <input type="email" name="authorEmail" className=" border-2 pl-3 py-1 input-bordered outline-none border-[#8a2121] text-black" defaultValue={`${user?.email}`} readOnly required />
                                 </div>
@@ -107,7 +107,7 @@ const AddArticles = () => {
                             <div className="md:flex gap-6 w-full">
                                 <div className="form-control pt-2 flex-1">
                                     <label className="label">
-                                        <span className="label-text font-semibold text-[#8a2121] text-[16px] md:text-[18px]">Publisher Profile</span>
+                                        <span className="label-text font-semibold text-[#8a2121] text-[16px] md:text-[18px]">User Profile</span>
                                     </label>
                                     <input type="text" name="authorProfile" className=" border-2 pl-3 py-2 input-bordered outline-none border-[#8a2121] text-black" defaultValue={`${user?.photoURL}`} readOnly required />
                                 </div>
@@ -147,6 +147,14 @@ const AddArticles = () => {
                                 </div>
 
                             </div>
+
+                            {/* date */}
+                            <div className="form-control pt-2 ">
+                                    <label className="label">
+                                        <span className="label-text font-semibold text-[#8a2121] text-[16px] md:text-[18px]">Date</span>
+                                    </label>
+                                    <input type="date" name="title" className=" border-2 pl-3 py-2 input-bordered outline-none border-[#8a2121] text-black" placeholder="Article Title" required />
+                                </div>
 
 
                             {/* description */}

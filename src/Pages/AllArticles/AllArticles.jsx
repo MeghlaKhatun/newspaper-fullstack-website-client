@@ -13,7 +13,7 @@ const AllServices = () => {
         const search = e.target.text.value.trim().toLowerCase();
         const filter = allArticles.filter(
             (allArticle) =>
-                allArticle.title.toLowerCase().indexOf(search) !== -1  && allArticle?.status === true
+                allArticle.title.toLowerCase().indexOf(search) !== -1 
         );
 
         setFilteredArticles(filter);
@@ -29,7 +29,7 @@ const AllServices = () => {
         <div>
             <Navbar></Navbar>
             <div className="max-w-4xl mx-auto grid grid-cols-1 gap-8 my-10 px-10">
-                {/* search section */}
+                {/* search functionality */}
                 <form onSubmit={handleSearch} className="mx-auto">
                     <div className="mt-10">
                         <input
@@ -50,15 +50,12 @@ const AllServices = () => {
                 </form>
             </div>
 
-            {/* all service */}
-
-            {
-                
-            }
+            {/* all approved articles */}
+        
             <div className="grid grid-cols-1 lg:grid-cols-2 max-w-7xl mx-auto gap-10 my-10 px-10 lg:px-0">
-                {filteredAllArticles?.map((data) => (
-                    <AllArticle key={data._id} data={data}></AllArticle>
-                ))}
+            {
+                filteredAllArticles?.filter((article)=>article.status === "Approve").map((data, index)=><AllArticle key={index} data={data}></AllArticle>)
+            }
             </div>
 
         </div>

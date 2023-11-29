@@ -30,7 +30,7 @@ const Dashboard = () => {
                                         All-Articles</NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to="/dashboard">         
+                                    <NavLink to="/addPublisher">         
                                         Add-Publisher</NavLink>
                                 </li>
 

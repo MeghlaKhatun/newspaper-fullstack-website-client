@@ -9,8 +9,10 @@ const Profile = ({ user }) => {
         e.preventDefault();
         const form = e.target;
         const name = form.authorName.value;
-        const email= form.authorEmail.vlaue;
+        const email= form.authorEmail.value;
         const photo = form.authorProfile.value
+
+        console.log(name,email,photo)
 
         const updateUser = { name,email,photo }
         //send data
@@ -66,7 +68,7 @@ const Profile = ({ user }) => {
                     <label className="label">
                         <span className="label-text font-semibold text-[#8a2121] text-[16px] md:text-[18px]">Photo URL</span>
                     </label>
-                    <input type="text" name="authorProfile" className=" border-2 pl-3 py-1 input-bordered outline-none border-[#8a2121] text-black" defaultValue={photo} />
+                    <input type="text" name="authorProfile" className=" border-2 pl-3 py-1 input-bordered outline-none border-[#8a2121] text-black" defaultValue={photo} required />
                 </div>
 
                 <div className='pt-6'>
