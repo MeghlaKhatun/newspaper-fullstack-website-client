@@ -29,7 +29,7 @@ const MyArticles = () => {
 
     }, [allArticles, user?.email]);
 
-    console.log( allArticles)
+    // console.log( allArticles)
 
      //delete button
      const handleDelete = id => {
@@ -114,7 +114,7 @@ const MyArticles = () => {
                                             </td>
 
                                             <td>
-                                            <Link to={`/myArticles/updateArticles/${article._id}`}>
+                                            <Link to={`/myArticles/${article._id}`}>
                                                 <button
                                                     className="py-2 px-4 bg-yellow-900 text-white font-semibold rounded-lg">
                                                     Update
