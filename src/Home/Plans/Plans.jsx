@@ -2,7 +2,7 @@
 const Plans = () => {
     return (
         <div className="">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#8a2121] text-center mt-8">Plans</h2>
+            <h2 className="text-center text-[#8a2121] text-2xl md:text-3xl lg:text-5xl  font-extrabold mt-8">Plans</h2>
             <div className="max-w-7xl mx-auto bg-black py-10 my-10 "> 
                 <div className="grid-cols-1 md:grid-cols-2 grid lg:grid-cols-3 gap-6 px-10">
 
@@ -33,9 +33,6 @@ const Plans = () => {
 
 
 
-
-
-
                     <div className="border-4 border-yellow-800 h-[500px] lg:h-[450px]">
                         <div className="p-5  flex justify-between items-center">
                             <div>
@@ -60,9 +57,6 @@ const Plans = () => {
                         </div>
 
                     </div>
-
-
-
 
 
 
