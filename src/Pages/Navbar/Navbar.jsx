@@ -2,10 +2,12 @@ import { Link, NavLink } from "react-router-dom";
 import '../Navbar/Navbar.css'
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
+import useAdmin from "../../hooks/useAdmin";
 
 const Navbar = () => {
 
     const { user, LogOut } = useContext(AuthContext);
+    const [isAdmin] = useAdmin();
 
     //logOut
     const handleSignOut = () => {
@@ -37,12 +39,27 @@ const Navbar = () => {
                                 <ul className=" flex gap-8  menu-horizontal text-white font-bold text-[16px] ">
                                     {/* Navbar menu content here */}
                                     <li><NavLink to={"/"}>Home</NavLink></li>
-                                    <li><NavLink to={"/addArticles"}>AddArticles</NavLink></li>
                                     <li><NavLink to={"/allArticles"}>AllArticles</NavLink></li>
-                                    <li><NavLink to={"/subscription"}>Subscription</NavLink></li>
-                                    <li><NavLink to={"/myArticles"}>MyArticles</NavLink></li>
-                                    <li><NavLink to={"/premiumArticles"}>PremiumArticles</NavLink></li>
-                                    <li><NavLink to={"/dashboard"}>Dashboard</NavLink></li>
+                                    {
+                                        user && <li><NavLink to={"/addArticles"}>AddArticles</NavLink></li>
+                                    }
+                                    {
+                                        user && <li><NavLink to={"/subscription"}>Subscription</NavLink></li>
+                                    }
+                                    {
+                                        user && <li><NavLink to={"/myArticles"}>MyArticles</NavLink></li>
+                                    }
+                                    {
+                                        user && <li><NavLink to={"/premiumArticles"}>PremiumArticles</NavLink></li>
+                                    }
+
+
+                                    {
+                                        user && isAdmin && <li><NavLink to={"/dashboard"}>Dashboard</NavLink></li>
+                                    }
+
+
+
 
                                     {
                                         user ? <p className="hidden"></p> : <li ><NavLink to={"/registration"}>Registration</NavLink></li>
@@ -69,7 +86,7 @@ const Navbar = () => {
                             <div className="flex justify-center px-2 overflow-hidden">
 
                                 {
-                                    user?.photoURL && <Link to={"/myProfile"}><img src={user?.photoURL} className="w-[30px] h-[30px] rounded-full"/></Link> 
+                                    user?.photoURL && <Link to={"/myProfile"}><img src={user?.photoURL} className="w-[30px] h-[30px] rounded-full" /></Link>
                                 }
                             </div>
 
@@ -85,12 +102,29 @@ const Navbar = () => {
                         <ul className="menu py-10 px-4 w-80 gap-3 bg-[#8a2121] text-white">
 
                             <li><NavLink to={"/"}>Home</NavLink></li>
-                            <li><NavLink to={"/addArticles"}>AddArticles</NavLink></li>
                             <li><NavLink to={"/allArticles"}>AllArticles</NavLink></li>
-                            <li><NavLink to={"/subscription"}>Subscription</NavLink></li>
-                            <li><NavLink to={"/myArticles"}>MyArticles</NavLink></li>
-                            <li><NavLink to={"/premiumArticles"}>PremiumArticles</NavLink></li>
-                            <li><NavLink to={"/dashboard"}>Dashboard</NavLink></li>
+
+
+                            {
+                                user && <li><NavLink to={"/addArticles"}>AddArticles</NavLink></li>
+                            }
+                            {
+                                user && <li><NavLink to={"/subscription"}>Subscription</NavLink></li>
+                            }
+                            {
+                                user && <li><NavLink to={"/myArticles"}>MyArticles</NavLink></li>
+                            }
+                            {
+                                user && <li><NavLink to={"/premiumArticles"}>PremiumArticles</NavLink></li>
+                            }
+
+
+
+
+                            {
+                                user && isAdmin && <li><NavLink to={"/dashboard"}>Dashboard</NavLink></li>
+                            }
+
                             {
                                 user ? <p className="hidden"></p> : <li ><NavLink to={"/registration"}>Registration</NavLink></li>
                             }

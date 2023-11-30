@@ -6,6 +6,7 @@ import Statistic from '../Statistic/Statistic';
 import Plans from '../Plans/Plans';
 import TopNews from '../TopNews/TopNews';
 import ContactUs from '../ContactUs/ContactUs';
+import AllPublisher from '../AllPublisher/AllPublisher';
 
 const Home = () => {
     return (
@@ -18,7 +19,8 @@ const Home = () => {
     
             <Navbar></Navbar>
             <TrendingArticles></TrendingArticles>
-            <Statistic></Statistic>
+            <AllPublisher></AllPublisher>
+            <Statistic></Statistic>          
             <Plans></Plans>
             <TopNews></TopNews>
             <ContactUs></ContactUs>

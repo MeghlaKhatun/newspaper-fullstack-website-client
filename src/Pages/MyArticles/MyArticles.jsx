@@ -98,9 +98,9 @@ const MyArticles = () => {
                                             }
                                             {
                                                 article?.premium ?
-                                                    <th>{article.premium}</th>
+                                                    <th>Yes</th>
                                                     :
-                                                    <th>Not Premium</th>
+                                                    <th>No</th>
 
                                             }
 
