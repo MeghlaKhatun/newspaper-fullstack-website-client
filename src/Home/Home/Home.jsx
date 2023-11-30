@@ -5,6 +5,7 @@ import TrendingArticles from '../Trendings/TrendingArticles';
 import Statistic from '../Statistic/Statistic';
 import Plans from '../Plans/Plans';
 import TopNews from '../TopNews/TopNews';
+import ContactUs from '../ContactUs/ContactUs';
 
 const Home = () => {
     return (
@@ -20,6 +21,7 @@ const Home = () => {
             <Statistic></Statistic>
             <Plans></Plans>
             <TopNews></TopNews>
+            <ContactUs></ContactUs>
             <Footer></Footer>
         </div>
     );
