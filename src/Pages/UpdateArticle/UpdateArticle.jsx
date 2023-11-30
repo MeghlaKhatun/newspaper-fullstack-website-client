@@ -140,7 +140,7 @@ const UpdateArticle = () => {
                             </div>
                         </div>
 
-                        <input type="submit" value="Add Article" className="py-3 cursor-pointer md:font-bold  btn-block border bg-[#8a2121] text-white" />
+                        <input type="submit" value="Update Article" className="py-3 cursor-pointer md:font-bold  btn-block border bg-[#8a2121] text-white" />
 
                     </form>
 
