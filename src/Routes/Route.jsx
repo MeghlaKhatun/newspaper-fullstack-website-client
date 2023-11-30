@@ -13,6 +13,7 @@ import MyProfile from "../Pages/MyProfile/MyProfile";
 import AdminAllArticle from "../Pages/AddminAllArticle/AdminAllArticle";
 import PrivateRoute from "./PrivateRoute";
 import AddPublisher from "../Pages/AddPublisher/AddPublisher";
+import PremiumArticle from "../Pages/PremiumArticles/PremiumArticle";
 
 const router = createBrowserRouter([
     {
@@ -66,6 +67,11 @@ const router = createBrowserRouter([
         {
           path:'/adminAllArticles',
           element:<AdminAllArticle></AdminAllArticle>
+        },
+        {
+          path:'/premiumArticles',
+          element:<PremiumArticle></PremiumArticle>,
+          loader:()=>fetch("http://localhost:5000/articles")
         }
 
       ]

@@ -16,9 +16,9 @@ const ContactUs = () => {
 
                 <div className="flex-1">
 
-                    <form  className=" w-full py-10 px-10 ">
+                    <form  className=" w-full py-6 md:py-10 px-10 ">
 
-                        {/*User name and email */}
+                        {/* name and email */}
                         <div className="md:flex gap-2 w-full">
                             <div className="form-control pt-1 flex-1">
                                 <label className="label">
@@ -45,7 +45,7 @@ const ContactUs = () => {
                                 <input type="email" placeholder="Email" className="  border-2 pl-3 py-2 input-bordered outline-none border-[#8a2121] text-black" required />
                             </div>
 
-                        {/* description */}
+                        {/* Message */}
 
                         <div className="mb-4">
                             <div className="form-control">
