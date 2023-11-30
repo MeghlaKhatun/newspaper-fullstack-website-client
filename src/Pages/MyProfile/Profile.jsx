@@ -16,7 +16,7 @@ const Profile = ({ user }) => {
 
         const updateUser = { name,email,photo }
         //send data
-        fetch(`http://localhost:5000/user/${_id}`, {
+        fetch(`https://newspaper-fullstack-website-server-side.vercel.app/user/${_id}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json"

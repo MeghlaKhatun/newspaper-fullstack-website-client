@@ -39,7 +39,7 @@ const router = createBrowserRouter([
         {
           path:'/myProfile',
           element:<PrivateRoute><MyProfile></MyProfile></PrivateRoute>,
-          loader:()=>fetch("http://localhost:5000/user")
+          loader:()=>fetch("https://newspaper-fullstack-website-server-side.vercel.app/user")
         },
         {
           path:'/addArticles',
@@ -48,12 +48,12 @@ const router = createBrowserRouter([
         {
           path:'/allArticles',
           element:<AllArticles></AllArticles>,
-          loader:()=>fetch(`http://localhost:5000/articles`)
+          loader:()=>fetch(`https://newspaper-fullstack-website-server-side.vercel.app/articles`)
         },
         {
           path:'/allArticles/:id',
           element:<Details></Details>,
-          loader:({params})=>fetch(`http://localhost:5000/articles/${params.id}`)
+          loader:({params})=>fetch(`https://newspaper-fullstack-website-server-side.vercel.app/articles/${params.id}`)
         },
         {
           path:'/dashboard',
@@ -74,7 +74,7 @@ const router = createBrowserRouter([
         {
           path:'/premiumArticles',
           element:<PrivateRoute><PremiumArticle></PremiumArticle></PrivateRoute>,
-          loader:()=>fetch("http://localhost:5000/articles")
+          loader:()=>fetch("https://newspaper-fullstack-website-server-side.vercel.app/articles")
         },
         {
           path:'/myArticles',
@@ -83,7 +83,7 @@ const router = createBrowserRouter([
         {
           path:'/myArticles/:id',
           element:<UpdateArticle></UpdateArticle>,
-          loader:({params})=>fetch(`http://localhost:5000/articles/${params.id}`)
+          loader:({params})=>fetch(`https://newspaper-fullstack-website-server-side.vercel.app/articles/${params.id}`)
         },
        {
         path:'/subscription',

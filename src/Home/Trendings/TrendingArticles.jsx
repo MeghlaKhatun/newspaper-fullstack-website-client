@@ -5,11 +5,10 @@ const TrendingArticles = () => {
 
 
     const [trending, setTrending] = useState([]);
-    console.log("tranding data", trending)
 
 
     useEffect(() => {
-        fetch("http://localhost:5000/articles")
+        fetch("https://newspaper-fullstack-website-server-side.vercel.app/articles")
             .then(res => res.json())
             .then(data => {
                 const sortedData = data?.sort((a, b) => b.viewCount - a.viewCount);

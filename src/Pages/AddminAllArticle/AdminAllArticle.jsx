@@ -94,7 +94,7 @@ const AdminAllArticle = () => {
        
         const decline ={message}
         //send data
-        fetch("http://localhost:5000/decline", {
+        fetch("https://newspaper-fullstack-website-server-side.vercel.app/decline", {
             method: "POST",
             headers: {
                 'content-type': 'application/json'

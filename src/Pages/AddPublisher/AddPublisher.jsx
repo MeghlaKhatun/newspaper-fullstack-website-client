@@ -27,7 +27,7 @@ const AddPublisher = () => {
         const publisherLogo = res.data.data.display_url
         const addPublisher = {publisherName, publisherLogo }
         // Post data
-        fetch("http://localhost:5000/publisher", {
+        fetch("https://newspaper-fullstack-website-server-side.vercel.app/publisher", {
             method: "POST",
             headers: {
                 'content-type': 'application/json'

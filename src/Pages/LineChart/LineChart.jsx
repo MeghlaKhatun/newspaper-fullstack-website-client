@@ -12,7 +12,7 @@ const LineChart = () => {
     ];
 
     const options = {
-        title: 'percentage og articles published per year',
+        title: 'percentage of articles published per year',
     };
 
     return (

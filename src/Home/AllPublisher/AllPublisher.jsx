@@ -6,7 +6,7 @@ const AllPublisher = () => {
     const [publisher, setPublisher] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:5000/publisher")
+        fetch("https://newspaper-fullstack-website-server-side.vercel.app/publisher")
             .then(res => res.json())
             .then(data => {
                 setPublisher(data)

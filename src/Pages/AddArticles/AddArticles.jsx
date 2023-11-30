@@ -62,7 +62,7 @@ const AddArticles = () => {
         const image = res.data.data.display_url
         const addArticle = { image, authorName, authorEmail, tag, title, description, authorProfile, publisher, date }
         // Post data
-        fetch("http://localhost:5000/articles", {
+        fetch("https://newspaper-fullstack-website-server-side.vercel.app/articles", {
             method: "POST",
             headers: {
                 'content-type': 'application/json'

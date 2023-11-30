@@ -8,7 +8,7 @@ const Statistic = () => {
     const [premium,setPremium]=useState([]);
   
     useEffect(()=>{
-        fetch("http://localhost:5000/articles")
+        fetch("https://newspaper-fullstack-website-server-side.vercel.app/articles")
         .then(res=>res.json())
         .then(data=>{
             setStatistic(data)

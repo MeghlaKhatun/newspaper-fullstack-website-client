@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 
 const AllArticle = (article) => {
     const { _id, publisher, title, image, description, premium } = article.data
-    console.log(article.data)
     return (
 
 
@@ -27,9 +26,9 @@ const AllArticle = (article) => {
                                 description.length > 200 ? <p className='font-medium text-[15px]'>{description.slice(0, 200)}.........</p> : <p className='font-medium text-[15px]'>{description}</p>
                             }
                             <div className="pt-4 flex justify-center">
-                                <Link to={`/allArticles/${_id}`}>
-                                    <button className="py-2 md:py-3 text-white font-bold px-10 rounded-tl-3xl  rounded-br-3xl  bg-yellow-800">Details</button>
-                                </Link>
+                                
+                                    <button className="py-2 md:py-3 disabled disabled:cursor-not-allowed text-white font-bold px-10 rounded-tl-3xl  rounded-br-3xl  bg-gray-500 pointer-events-none">Details</button>
+                                
                             </div>
                         </div>
                     </div>

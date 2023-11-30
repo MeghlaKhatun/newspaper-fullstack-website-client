@@ -23,7 +23,7 @@ const UpdateArticle = () => {
         
     const updateService = {authorName, authorEmail, tag,image, title,  authorProfile, publisher, date,description}
     // send data
-    fetch(`http://localhost:5000/articles/${_id}`, {
+    fetch(`https://newspaper-fullstack-website-server-side.vercel.app/articles/${_id}`, {
         method: "PUT",
         headers: {
             "content-type": "application/json"
