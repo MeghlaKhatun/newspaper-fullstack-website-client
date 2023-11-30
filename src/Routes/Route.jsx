@@ -16,6 +16,7 @@ import AddPublisher from "../Pages/AddPublisher/AddPublisher";
 import PremiumArticle from "../Pages/PremiumArticles/PremiumArticle";
 import MyArticles from "../Pages/MyArticles/MyArticles";
 import UpdateArticle from "../Pages/UpdateArticle/UpdateArticle";
+import Subscription from "../Pages/Subscription/Subscription";
 
 const router = createBrowserRouter([
     {
@@ -83,7 +84,11 @@ const router = createBrowserRouter([
           path:'/myArticles/:id',
           element:<UpdateArticle></UpdateArticle>,
           loader:({params})=>fetch(`http://localhost:5000/articles/${params.id}`)
-        }
+        },
+       {
+        path:'/subscription',
+        element:<Subscription></Subscription>
+       }
 
       ]
     },

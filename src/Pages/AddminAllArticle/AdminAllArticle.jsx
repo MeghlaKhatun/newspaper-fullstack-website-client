@@ -81,6 +81,52 @@ const AdminAllArticle = () => {
             })
     }
 
+    const closeModal = () => {
+        const modal = document.getElementById('my_modal_3');
+        modal.close();
+    }
+
+    //Decline button
+   const handleDecline =(e)=>{
+        e.preventDefault();
+        const form = e.target;
+       const message = form.message.value;
+       
+        const decline ={message}
+        //send data
+        fetch("http://localhost:5000/decline", {
+            method: "POST",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(decline)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.insertedId) {
+                    Swal.fire({
+                        position: "top-center",
+                        icon: "success",
+                        title: "Decline Successful",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                    closeModal();
+                } else {
+                    Swal.fire({
+                        position: "top-center",
+                        icon: "error",
+                        title: "Oppss sorry!!!!",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
+
+            })
+
+    }
+
 
     return (
         <div>
@@ -127,9 +173,9 @@ const AdminAllArticle = () => {
 
                                                         {/* main form */}
 
-                                                        <form>
+                                                        <form onSubmit={handleDecline}>
                                                             <div className="form-control pt-2 flex-1">
-                                                                <textarea name="instruction" id="" cols="20" rows="5" placeholder="description" className="border-2 rounded-lg outline-none p-2 text-black"></textarea>
+                                                                <textarea name="message" id="" cols="20" rows="5" placeholder="Message" className="border-2 rounded-lg outline-none p-2 text-black"></textarea>
                                                             </div>
 
                                                             <div className="flex items-center justify-center mt-4">

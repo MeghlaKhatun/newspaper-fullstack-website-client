@@ -1,6 +1,8 @@
 import { NavLink,} from "react-router-dom";
 import Navbar from "../../Pages/Navbar/Navbar";
 import PieChart from "../GooglePieChart/PieChart";
+import BarChart from "../../Pages/BarChart/BarChart";
+import LineChart from "../../Pages/LineChart/LineChart";
 
 
 const Dashboard = () => {
@@ -44,6 +46,8 @@ const Dashboard = () => {
                 {/* dashboard content */}
                 <div className="flex-1 p-8">
                     <PieChart></PieChart>
+                    <BarChart></BarChart>
+                    <LineChart></LineChart>
                 </div>
             </div>
         </div>
