@@ -14,6 +14,7 @@ import AdminAllArticle from "../Pages/AddminAllArticle/AdminAllArticle";
 import PrivateRoute from "./PrivateRoute";
 import AddPublisher from "../Pages/AddPublisher/AddPublisher";
 import PremiumArticle from "../Pages/PremiumArticles/PremiumArticle";
+import MyArticles from "../Pages/MyArticles/MyArticles";
 
 const router = createBrowserRouter([
     {
@@ -70,8 +71,12 @@ const router = createBrowserRouter([
         },
         {
           path:'/premiumArticles',
-          element:<PremiumArticle></PremiumArticle>,
+          element:<PrivateRoute><PremiumArticle></PremiumArticle></PrivateRoute>,
           loader:()=>fetch("http://localhost:5000/articles")
+        },
+        {
+          path:'/myArticles',
+          element:<PrivateRoute><MyArticles></MyArticles></PrivateRoute>,
         }
 
       ]
